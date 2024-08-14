@@ -8,14 +8,14 @@ import React, { FC, useState } from "react";
 // import TemplatesDropdown from "./TemplatesDropdown";
 // import DropdownCategories from "./DropdownCategories";
 // import CartDropdown from "./CartDropdown";
-// import { XMarkIcon } from "@heroicons/react/24/outline";
+import { XMarkIcon } from "@heroicons/react/24/outline";
 import { useRouter } from "next/navigation";
 
-export interface MainNav2Props {
+export interface MainNavProps {
   className?: string;
 }
 
-const MainNav2: FC<MainNav2Props> = ({ className = "" }) => {
+const MainNav2: FC<MainNavProps> = ({ className = "" }) => {
   const [showSearchForm, setShowSearchForm] = useState(false);
   const router = useRouter();
 
@@ -48,28 +48,29 @@ const MainNav2: FC<MainNav2Props> = ({ className = "" }) => {
 
   const renderSearchForm = () => {
     return (
-        <></>
-    //   <form
-    //     className="flex-1 py-2 text-slate-900 dark:text-slate-100"
-    //     onSubmit={(e) => {
-    //       e.preventDefault();
-    //       router.push("/search");
-    //     }}
-    //   >
-    //     <div className="bg-slate-50 dark:bg-slate-800 flex items-center space-x-1.5 px-5 h-full rounded">
-    //       {renderMagnifyingGlassIcon()}
-    //       <input
-    //         type="text"
-    //         placeholder="Type and press enter"
-    //         className="border-none bg-transparent focus:outline-none focus:ring-0 w-full text-base"
-    //         autoFocus
-    //       />
-    //       <button type="button" onClick={() => setShowSearchForm(false)}>
-    //         <XMarkIcon className="w-5 h-5" />
-    //       </button>
-    //     </div>
-    //     <input type="submit" hidden value="" />
-    //   </form>
+        // <></>
+        <form
+          className="flex-1 py-2 text-slate-900 dark:text-slate-100"
+          onSubmit={(e) => {
+            e.preventDefault();
+            router.push("/search");
+          }}
+        >
+          <div className="bg-slate-50 dark:bg-slate-800 flex items-center space-x-1.5 px-5 h-full rounded">
+            {renderMagnifyingGlassIcon()}
+            <input
+              type="text"
+              placeholder="Type and press enter"
+              className="border-none bg-transparent focus:outline-none focus:ring-0 w-full text-base"
+              autoFocus
+            />
+            <button type="button" onClick={() => setShowSearchForm(false)}>
+              <XMarkIcon className="w-5 h-5" />
+            </button>
+          </div>
+          <input type="submit" hidden value="" />
+        </form>
+      
     );
   };
 
