@@ -1,8 +1,20 @@
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
+import { Poppins } from "next/font/google";
 import "./globals.css";
+// import "@/fonts/line-awesome-1.3.0/css/line-awesome.css";
+// import "@/styles/index.scss";
+// import "rc-slider/assets/index.css";
+// import Footer from "@/shared/Footer/Footer";
+import SiteHeader from "@/app/SiteHeader";
+// import CommonClient from "./CommonClient";
 
 const inter = Inter({ subsets: ["latin"] });
+const poppins = Poppins({
+  subsets: ["latin"],
+  display: "swap",
+  weight: ["300", "400", "500", "600", "700"],
+});
 
 export const metadata: Metadata = {
   title: "Create Next App",
@@ -15,8 +27,14 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
-      <body className={inter.className}>{children}</body>
+    <html lang="en" dir="" className={poppins.className}>
+      <body className="bg-white text-base dark:bg-neutral-900 text-neutral-900 dark:text-neutral-200">
+        <SiteHeader />
+        {children}
+        {/* <CommonClient />
+        <Footer /> */}
+      </body>
     </html>
   );
 }
+
